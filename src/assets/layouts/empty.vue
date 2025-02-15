@@ -1,3 +1,3 @@
 <template>
-  <p>Hello, world!</p>
+  <slot />
 </template>
