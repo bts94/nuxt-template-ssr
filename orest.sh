@@ -1,6 +1,14 @@
 #!/bin/bash
-# Генеруємо рядок з 7 випадкових алфавітно-цифрових символів
-RANDOM_STR=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c7)
+
+# Набір допустимих символів
+CHARS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+RANDOM_STR=""
+
+# Генеруємо 7 випадкових символів
+for i in {1..7}; do
+  RANDOM_STR+="${CHARS:RANDOM%${#CHARS}:1}"
+done
+
 
 BRANCH_NAME="feature/${RANDOM_STR}"
 echo "Використовуємо ім'я гілки: ${BRANCH_NAME}"
